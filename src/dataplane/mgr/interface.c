@@ -265,8 +265,10 @@ dp_interface_rx_burst_internal(struct interface *ifp,
 #else
       break;
 #endif
+#if defined(__linux__)
     case DATASTORE_INTERFACE_TYPE_ETHERNET_RAWSOCK:
       return rawsock_rx_burst(ifp, mbufs, nb);
+#endif
 
     case DATASTORE_INTERFACE_TYPE_UNKNOWN:
       break;

@@ -747,7 +747,9 @@ flow_remove_with_reason_nolock(struct flow *flow,
 #ifdef HAVE_DPDK
   clear_worker_flowcache(false);
 #endif /* HAVE_DPDK */
+#if defined(__linux__)
   clear_rawsock_flowcache();
+#endif
 
   group_table = bridge->group_table;
   meter_table = bridge->meter_table;
@@ -1151,7 +1153,9 @@ flowdb_flow_add(struct bridge *bridge,
 #ifdef HAVE_DPDK
   clear_worker_flowcache(false);
 #endif /* HAVE_DPDK */
+#if defined(__linux__)
   clear_rawsock_flowcache();
+#endif
 
 out:
   /* Unlock the flowdb then return result. */
@@ -1685,7 +1689,9 @@ flowdb_flow_modify(struct bridge *bridge,
 #ifdef HAVE_DPDK
   clear_worker_flowcache(false);
 #endif /* HAVE_DPDK */
+#if defined(__linux__)
   clear_rawsock_flowcache();
+#endif
 
   /* Unlock the flowdb and return result. */
 out:
@@ -1754,7 +1760,9 @@ flowdb_flow_delete(struct bridge *bridge,
 #ifdef HAVE_DPDK
   clear_worker_flowcache(false);
 #endif /* HAVE_DPDK */
+#if defined(__linux__)
   clear_rawsock_flowcache();
+#endif
 
   /* Unlock the flowdb and return result. */
 out:
