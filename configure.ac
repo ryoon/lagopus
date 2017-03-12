@@ -123,7 +123,7 @@ case $OS in
     netbsd*)
 	MAKE=gmake
 	OS_CPPFLAGS="${OS_CPPFLAGS} -I/usr/pkg/include"
-	OS_LDFLAGS="${OS_LDFLAGS} -L/usr/pkg/lib"
+	OS_LDFLAGS="${OS_LDFLAGS} -L/usr/pkg/lib -Wl,-R/usr/pkg/lib"
 	CPPFLAGS="${CPPFLAGS} ${OS_CPPFLAGS}"
 	LDFLAGS="${LDFLAGS} ${OS_LDFLAGS}"
 	OS_LIBS="-lpthread -lexecinfo"
